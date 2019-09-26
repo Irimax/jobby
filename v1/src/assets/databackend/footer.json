@@ -1,0 +1,57 @@
+[
+    {
+    "type": "links",
+    "links": [
+            {
+                "title": "Accueil",
+                "link": "/home",
+                "icon":""
+            },
+            {
+                "title": "Contact",
+                "link": "/contact",
+                "icon":""
+            },
+            {
+                "title": "Blog",
+                "link": "/blog",
+                "icon":""
+            },
+            {
+                "title": "facebook",
+                "link": "",
+                "icon":"fab fa-facebook-square"
+            },
+            {
+                "title": "twitter",
+                "link": "",
+                "icon":"fab fa-twitter-square"
+            }
+        ]
+    },
+    {
+    "type": "locations",
+    "links": [
+            {
+                "title": "Lille",
+                "links": ""
+            },
+            {
+                "title": "Paris",
+                "links": ""
+            },
+            {
+                "title": "Bordeaux",
+                "links": ""
+            },
+            {
+                "title": "Lyon",
+                "links": ""
+            },
+            {
+                "title": "Marseille",
+                "links": ""
+            }
+        ]
+    }
+]

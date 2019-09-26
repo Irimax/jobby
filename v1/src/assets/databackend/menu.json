@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Inscription",
+        "link": "/register"
+    },
+    {
+        "title": "Connexion",
+        "link": "/connexion"
+    },
+    {
+        "title": "À propos",
+        "link": "/about"
+    },
+    {
+        "title": "Contact",
+        "link": "/contact"
+    }
+]

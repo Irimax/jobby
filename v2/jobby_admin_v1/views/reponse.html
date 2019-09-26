@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Font GOOGLE -->
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- script javaScript-->
+  
+    <script src="../script/reponses.js"></script>
+    <script src="../script/displayReponse.js"></script>
+    <script src="../script/updateReponse.js"></script>
+    <script src="../script/createReponse.js"></script>
+    <script src="../script/deleteReponse.js"></script>
+
+
+    <title>Jobby Admin Reponse</title>
+
+</head>
+
+<body onload="displayReponses (), displayQuestion ()">
+    <header class="container-fluid mb-5 border-bottom sticky-top bg-white">
+
+        <section class="row">
+            <a href="" id="app-title" class="col-4 text-center mt-2">
+                <h1>Jobby admin</h1>
+            </a>
+            <section id="menu-items" class="col-8 mt-4">
+                <div class="row">
+                    <a href="" class="col">Inscription</a>
+                    <a href="connexion.html"><span class="fas fa-sign-in-alt"></span> Login</a>
+                    <a href="form.html" class="col">Contact</a>
+                </div>
+            </section>
+        </section>
+    </header>
+    <main>
+        <section class="container text-center">
+            <h3>EDITEZ LA REPONSE ( <span id="label"></span>)</h3>
+        </section>
+        <section id="message"></section>
+        <form class="container mb-5">
+            <div class="form-group">
+                <label for="reponseLabel">Label de la reponse</label>
+                <input type="text" name="reponseLabel" class="form-control" id="reponse" value="">
+                <input type="hidden" name="reponseId" value="">
+                <input type="hidden" name="possibleResponse_questionId" value="">
+            </div>
+            <div class="form-group">
+                <label for="reponseOrder">Type reponse</label>
+                <input type="text" name="reponseOrder" class="form-control" id="reponseOrder">
+            </div>
+
+            <div class="form-group">
+                    <label for="questionIsArchived">Archiver</label>
+                    <select name="questionIsArchived" id="questionIsArchived">
+                        <option  value="true">yes</option>
+                        <option  value="false">no</option>
+                    </select>
+            </div>
+            <button onclick="updateQuestion()" type="button" class="btn btn-outline-primary">Modifier</button>
+            <button  type="button" class="btn btn-outline-danger" data-toggle="modal"
+            data-target="#modalDelete">Supprimer</button>
+        </form>
+
+        <section class="container text-center mb-5">
+            <h3>Consultez la liste des reponse possibles</h3>
+            <p>(cliquer pour editer)</p>
+        </section>
+
+
+        <section class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">LABEL</th>
+                        <th scope="col">CODE</th>
+                        <th scope="col">TYPE</th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody id="arrayQuestion" >
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+
+
+
+
+    <footer class="row border-top pt-3">
+        <section id="links" class="col row text-center">
+            <a href="index.html" class="col">Accueil</a>
+            <a href="form.html" class="col">Contact</a>
+            <a href="" class="col">Blog</a>
+            <a href="" class="col">
+                <i class="fab fa-facebook-square"></i>
+            </a>
+            <a href="" class="col">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+        </section>
+        <section id="localisation-box" class="col row text-center">
+            <p class="col">Lille</p>
+            <p class="col">Paris</p>
+            <p class="col">Bordeaux</p>
+            <p class="col">Lyon</p>
+            <p class="col">Marseille</p>
+        </section>
+    </footer>
+
+      <!-- bootstrap modal -->
+
+    <!-- Modal create question -->
+    <div class="modal fade" id="createReponseModal" tabindex="-1" role="dialog" aria-labelledby="createReponseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createReponseModalLabel">Entrez le libelle de la Reponse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                                <input type="text" name="ReponseLabel" class="form-control mb-3" id="">
+                                <input type="hidden" name="ReponseId" value="">
+                            </div>
+                            <button onclick="createReponse()" type="button" class="btn btn-outline-primary" >Envoyer</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  modal delete reponse -->
+    
+   
+   
+       <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+       aria-hidden="true">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="modalDeleteLabel">Voulez-vous supprimer la reponse</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                   <form>
+                       <button onclick="deletereponse()" type="button" class="btn btn-outline-primary" >yes</button>
+                       <button data-dismiss="modal" type="button" class="btn btn-outline-danger" >no</button>
+                   </form>
+               </div>
+   
+           </div>
+       </div>
+   </div>
+   
+    <!--Script bootstrap  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

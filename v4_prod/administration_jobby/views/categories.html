@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+<h2>Categories Page</h2>
+    <main>
+        <section class="container text-center mb-5">
+            <h3>CONSULTER LA LISTE DES CATEGORIES</h3>
+            <p>(cliquer sur une categorie pour l'editer)</p>
+        </section>
+
+        <section class="container">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-success mb-5 " data-toggle="modal" data-target="#exampleModal">
+                Ajouter
+            </button>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">LABEL</th>
+                        <th scope="col">CODE</th>
+                        <th scope="col">Nombre de questions</th>
+                        <th scope="col">IMAGES</th>
+                        <th scope="col">Archiver</th>
+                        <th scope="col">Parent or Child</th>
+                    </tr>
+                </thead>
+                <tbody id="array"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- bootstrap modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Entrez le libelle de la category
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                            <input type="text" name="categoryLabel" class="form-control mb-3" id="" />
+                            <input type="hidden" name="categoryId" value="" />
+                        </div>
+                        <button onclick="createCategory()" type="button" class="btn btn-outline-primary">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+   

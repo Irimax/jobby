@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+/* STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none !important;
+    color: black !important;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+
+
+
+h1{
+    display: inline-flex;
+    align-content: left;
+    margin-right: 20px;
+}
+h3{
+    display:inline-flex;
+    align-content: left;
+   
+}
+
+.logout{
+    display: inline-block;
+    text-align: right;
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.fa-cogs{
+    margin-top: 5px;
+    margin-right: 20px;
+   
+   
+}
+/* admid */
+
+#admin{
+    background: url('../images/highway.jpg') center;
+}
+
+#admin > main{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#home
+{
+    /* text-shadow: #000 0.1em 0.1em 0.2em; */
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: #000;
+    text-decoration: none;
+
+}
+
+
+
+.textLogo
+{
+    /* text-shadow: #000 0.1em 0.1em 0.2em; */
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+
+}
+
+.register_connexion{
+    background-color: dimgray;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;
+    border: #000 solid 1px;
+    
+
+}
+
+/* .image_input{
+    text-decoration: none;
+} */
+
+/* .container:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #FFF;
+    z-index: -1;
+}
+
+.container:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #FFF;
+    z-index: -2;
+    filter: blur(40px)
+}
+
+.container:before,
+.container::after{
+    background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
+} */
+
+/* end admin */
+
+/* main section */
+
+/* main{
+    height: 70vh;
+    
+}  */
+
+#catch-phrases-box {
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 45vh;
+    
+
+}
+.catch-phrase {
+    color: #FFF;
+    font-size: 2rem;
+
+}
+
+#slogan-box { 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 45vh;
+
+}
+
+#slogan {
+
+    color: #000;
+    font-size: 3rem;
+    background: #FFF;
+    padding: 10px 20px ;
+    border-radius: 5rem;
+
+}
+
+#slogan:hover
+{
+    transform: scale(1.2) rotate(-2deg);
+    box-shadow: -10px 10px 5px rgba(0, 0 , 0, 0.281);
+}
+
+
+
+
+#img {
+    background-image: url("./images/jobby-image.jpg");
+    width: 100%;
+}
+
+
+/* css category */
+
+#img-category {
+    background: url("/images/workers.jpg") no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    
+}
+
+#cards-box
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+
+.card
+{
+    
+    height: 30vh;
+    min-width: 30vh;
+    margin-top: 2vh;
+    box-shadow: -2px 2px 5px rgba(0, 0 , 0, 0.281);
+    border: lightgray 1px solid;
+}
+
+.card-label
+{
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase
+
+}
+
+.img-box
+{
+    height: 75%;
+    width: 30vh;
+
+
+}
+
+
+
+
+/* media queries */
+
+/* small phone portrait */
+
+@media (max-width: 599px) and (orientation: portrait){
+    /* header section */
+
+    header{
+    flex-direction: column;
+    }
+    #app-title{
+
+    width: 100vw;
+    height: 10vh;
+    padding: 5px;
+    margin-top: 20px;
+    
+    }
+
+    #menu-items{
+
+        width: 100vw;
+        font-size: .8rem;
+        padding: 5px;
+    }
+
+    /* main section */
+
+    #catch-phrases-box{
+    display: flex;
+    flex-direction: column;
+    }
+
+    #slogan{
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5rem;
+    }
+
+    /* footer section */
+
+    footer{
+    height: 25vh;
+    }
+
+    #links{
+    flex-direction: column;
+    }
+
+    #localisation-box{
+    flex-direction: column;
+
+    }
+
+    /* category */
+
+    #img-category{
+    margin-bottom: -500px;
+    }
+
+    .questions{ 
+    min-width: 95vw;
+    }
+
+    .form-label{
+    text-align: center;
+    } 
+
+}
+
+/* small phones portrait : */
+@media (max-width: 599px) and (orientation: portrait){}
+
+
+/* small phones landscape : */
+@media (max-width: 599px) and (orientation: landscape){
+
+    header{
+        width: 90vw;
+    }
+
+    #text-form{
+        width: 90vw;
+    }
+    form{
+        flex-direction: column;
+        }
+
+        .questions{
+            height: 60vh;
+            width: 90vw;
+        }
+
+        .submit-box{
+            width: 90vw;
+        }
+
+        footer{
+            width: 90vw;
+        }
+    }
+
+/* medium phones portrait */
+@media (min-width: 600px) and (orientation: portrait){
+    form{
+        flex-direction: column;
+        }
+
+}
+/* medium phones landscape */
+@media (min-width: 600px) and (max-width: 823px) and (orientation: landscape){
+    form{
+        flex-direction: column;
+        }
+
+}
+/* tablets portrait : */
+@media (min-width: 768px) and (max-width:1199px) and (orientation: portrait){}
+/* tablets landscape */
+@media (min-width: 824px) and (max-width:1199px) and (orientation: landscape){}
+/* big tablets + laptop : */
+@media (min-width: 1200px){}
+
+
+/* small phone landscape */
+/* 
+@media (max-width: 599px) and (orientation: landscape){
+ 
+    .img-box{
+
+        width: 50vh;
+    }
+
+   
+} */
+
+
+/* small phone portrait */
+/* @media (min-width: 600px) and (orientation: portrait){
+
+   
+} */
+/* medium phone landscape */
+
+/* @media (min-width: 768px) and (max-width:1199px) and (orientation: portrait){
+
+#img
+{
+    height: 35vh;
+}
+
+*
+{
+    font-size: 1.1em;
+}
+
+} */
+
+/* medium tablet portrait */
+
+/* @media (min-width: 1000px) and (max-width:1366px) and (orientation: portrait){
+
+    #img
+    {
+        height: 35vh;
+    }
+    
+    *
+    {
+        font-size: 1.2em;
+    }
+    
+    #img-category
+    {
+        margin-bottom: -850px;
+    }
+
+    } */
+
+    /* medium tablet landscape */
+/* 
+@media (min-width: 1000px) and (max-width:1366px) and (orientation: landscape){
+
+    #img
+    {
+        height: 35vh;
+    }
+    
+    *
+    {
+        font-size: 1.1em;
+    }
+    
+    #img-category
+    {
+        margin-bottom: -500px;
+    }
+
+    }  */
+
+    /* medium tablet landscape */
+
+     /* @media (min-width: 1000px) and (orientation: landscape){
+
+        #img
+        {
+            height: 35vh;
+        }
+        
+        
+        {
+            font-size: 1.1em;
+        }
+        
+        #img-category
+        {
+            margin-bottom: -150px;
+        }
+    
+        } */
+
+/* fin media querie */

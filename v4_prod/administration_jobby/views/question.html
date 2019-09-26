@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+
+{% block title %}Question{% endblock %}
+
+{% block content %}
+<h2>Question Page</h2>
+    <main>
+        <section class="container text-center">
+            <h3>EDITEZ LA QUESTION ( <span id="label"></span>)</h3>
+        </section>
+        <section id="message"></section>
+        <form class="container mb-5">
+            <div class="form-group">
+                <label for="categorie">Label de la question</label>
+                <input type="text" name="questionLabel" class="form-control" id="question" value="">
+                <input type="hidden" name="questionId" value="">
+                <input type="hidden" name="categoryId" value="">
+                <input type="hidden" name="question_categoryId" value="">
+                <input type="hidden" name="possibleResponse_questionId" value="">
+
+            </div>
+            <div class="form-group">
+                <label for="questionOrder">Ordre de la question</label>
+                <input type="text" name="questionOrder" class="form-control" id="questionOrder" value="">
+            </div>
+            <div class="form-group">
+                <label for="typeReponse">Type de reponse</label>
+                <select name="question_questionTypeId" id="typeReponse"></select>
+            </div>
+            <div class="form-group">
+                <label for="questionIsArchived">Archiver</label>
+                <select name="questionIsArchived" id="questionIsArchived">
+                    <option value="true">yes</option>
+                    <option value="false">no</option>
+                </select>
+            </div>
+
+            <button onclick="updateQuestion()" type="button" class="btn btn-outline-primary">Modifier</button>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                data-target="#modalDelete">Supprimer</button>
+        </form>
+
+
+        <div id="typeMultiple">
+            <section class="container text-center mb-5">
+                <h3>Consultez la liste des reponse possibles qui y sont associees</h3>
+                <p>(cliquer pour editer)</p>
+            </section>
+
+
+            <section class="container">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-success mb-5 " data-toggle="modal"
+                    data-target="#createReponseModal">Ajouter</button>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">LABEL</th>
+                            <th scope="col">CODE</th>
+                            <th scope="col">TYPE</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody id="arrayReponses">
+                    </tbody>
+                </table>
+
+            </section>
+    </main>
+    </div>
+
+
+    <!-- bootstrap modal -->
+
+    <!-- Modal create question -->
+    <div class="modal fade" id="createReponseModal" tabindex="-1" role="dialog"
+        aria-labelledby="createReponseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createReponseModalLabel">Entrez le libelle de la Reponse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                            <input type="text" name="possibleResponseLabel" class="form-control mb-3" id="">
+                            <input type="hidden" name="reponseId" value="">
+                        </div>
+                        <button onclick="createReponse()" type="button" class="btn btn-outline-primary">Envoyer</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  modal delete question -->
+
+
+
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDeleteLabel">Voulez-vous supprimer la question</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <button onclick="deleteQuestion()" type="button" class="btn btn-outline-primary">yes</button>
+                        <button data-dismiss="modal" type="button" class="btn btn-outline-danger">no</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}

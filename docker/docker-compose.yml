@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+
+  jobby-api:
+    build: 
+     context: ../api.jobby.com
+    restart: always
+    ports:
+      - 6005:6005
+
+  jobby-pf:
+    build: 
+     context: ../pf.jobby
+    restart: always
+    ports:
+      - 11000:11000
+
+  # jobby-front:
+  #   build: 
+  #    context: ../v1
+  #   restart: always
+  #   ports:
+  #     - 11000:11000
+
+  # jobby-admin:
+  #   build: 
+  #    context: ../jobby_admin_v1
+  #   restart: always
+  #   ports:
+  #     - 11000:11000
+   
+
+  jobbydb:
+    volumes: 
+      - ./jobbydb:/docker-entrypoint-initdb.d
+    image: mysql:8.0.15
+    restart: always
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_DATABASE: jobbydb
+      MYSQL_USER: lidian
+      MYSQL_PASSWORD: 31101978
+      MYSQL_ROOT_PASSWORD: 31101978
+      

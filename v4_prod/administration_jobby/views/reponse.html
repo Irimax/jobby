@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %}Réponses{% endblock %}
+
+{% block content %}
+<h2>Réponses Page</h2>
+<main>
+    <section class="container text-center">
+        <h3>EDITEZ LA REPONSE ( <span id="label"></span>)</h3>
+    </section>
+    <section id="message"></section>
+    <form class="container mb-5">
+        <div class="form-group">
+            <label for="possibleResponseLabel">Label de la reponse</label>
+            <input type="text" name="possibleResponseLabel" class="form-control" id="reponse" value="">
+            <input type="hidden" name="possibleResponseId" value="">
+            <input type="hidden" name="possibleResponse_questionId" value="">
+            <input type="hidden" name="questionId" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="possibleResponseIsArchived">Archiver</label>
+            <select name="possibleResponseIsArchived" id="possibleResponseIsArchived">
+                <option value="true">yes</option>
+                <option value="false">no</option>
+            </select>
+        </div>
+        <button onclick="updateReponse()" type="button" class="btn btn-outline-primary">Modifier</button>
+        <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+            data-target="#modalDelete">Supprimer</button>
+    </form>
+</main>
+
+
+
+
+
+
+<!-- bootstrap modal -->
+
+<!--  modal delete reponse -->
+
+
+
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Voulez-vous supprimer la reponse</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <button onclick="deleteReponse()" type="button" class="btn btn-outline-primary">yes</button>
+                    <button data-dismiss="modal" type="button" class="btn btn-outline-danger">no</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    {% endblock %}

@@ -1,0 +1,96 @@
+[
+    {
+        "id": "1",
+        "title": "QUEL TYPE DE MATERIEL AVEZ-VOUS BESOIN DE REPARER ?",
+        "name":"equipmentToRepair",
+        "type":"text",
+        "reponses": [
+            {
+                "name":""
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "DANS QUEL ETAT CE TROUVE LE MATERIEL ?",
+        "name":"repair-state",
+        "type":"radio",
+        "reponses": [
+            {
+                "value": "aBitDefective",
+                "name":"repair-state",
+                "reponses": "UN PEU DEFECTUEUX"
+            },
+            {
+                "value": "VeryDefective",
+                "name":"repair-state",
+                "reponses": "TRES DEFECTUEUX"
+            },
+            {
+                "value": "OutOfOrder",
+                "name":"repair-state",
+                "reponses": "HORS D'USAGE"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "QUEL JOUR SERIEZ-VOUS DISPONIBLE POUR RECEVOIR UN JOBBEUR ?",
+        "name":"schedule",
+        "type":"date",
+        "reponses": []
+    },
+    {
+        "id": "4",
+        "title": "DANS QUEL CRENEAU HORAIRE ?",
+        "name":"TIME NECKLACE",
+        "type":"checkbox",
+        "reponses": [
+            {
+                "value": "morning",
+                "name":"TIME NECKLACE",
+                "reponses": "08:00 - 12:00"
+            },
+            {
+                "value": "noon",
+                "name":"TIME NECKLACE",
+                "reponses": "12:00 - 14:00"
+            },
+            {
+                "value": "afternoon",
+                "name":"TIME NECKLACE",
+                "reponses": "14:00 - 18:00"
+            },
+            {
+                "value": "evening",
+                "name":"TIME NECKLACE",
+                "reponses": "18:00 - 20:00"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "title": "VOTRE DOMICILE POSSEDE T'IL UN ASCENSEUR ?",
+        "name":"lift",
+        "type":"select",
+        "reponses": [
+            {
+                "value": "yes",
+                "name":"lift",
+                "reponses": "oui"
+            },
+            {
+                "value": "no",
+                "name":"lift",
+                "reponses": "non"
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "title": "AVEZ-VOUS UNE REMARQUE SUPLEMENTAIRE A FAIRE ?",
+        "name":"note",
+        "type":"textarea",
+        "reponses": []
+    }
+]

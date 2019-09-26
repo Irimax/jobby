@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "lidian",
+    "password": "31101978",
+    "database": "users_development",
+    "host": "192.168.1.94",
+    "dialect": "mysql",
+    "port": "3110"
+  },
+  "test": {
+    "username": "lidian",
+    "password": "31101978",
+    "database": "users_test",
+    "host": "192.168.1.94",
+    "dialect": "mysql",
+    "port": "3110"
+  },
+  "production": {
+    "username": "lidian",
+    "password": "31101978",
+    "database": "users_production",
+    "host": "192.168.1.94",
+    "dialect": "mysql",
+    "port": "3110"
+  }
+}

@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  administration_jobby:
+    build: 
+     context: ../administration_jobby
+    volumes:
+      - ../administration_jobby:/opt/
+    restart: always
+    environment:
+    - VIRTUAL_HOST=jobbyAdmin.manoha.art
+    - LETSENCRYPT_HOST=jobbyAdmin.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: administration_jobby
+    
+
+      
+volumes:
+  jobbyAdminvolumes:
+
+networks:
+    default:
+      external:
+        name: webproxy

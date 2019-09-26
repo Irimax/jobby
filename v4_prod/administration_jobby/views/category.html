@@ -1,0 +1,129 @@
+{% extends 'layout.html' %}
+
+{% block title %}Create Category{% endblock %}
+
+{% block content %}
+<h2>Create Category</h2>
+    <main>
+        <section class="container text-center">
+            <h3>EDITEZ LA CATEGORY ( <span id="label"></span>)</h3>
+        </section>
+        <section id="message"></section>
+        <form class="container mb-5">
+
+            <div class="form-group">
+                <label for="categorie">Label de la category</label>
+                <input type="text" name="categoryLabel" class="form-control" id="categorie" value="">
+                <input type="hidden" name="categoryId" value="">
+                <input type="hidden" name="question_categoryId" value="">
+                <input type="hidden" name="parentOrChild" value="">
+            </div>
+            <div class="form-group">
+                <label for="categoryImage">Image de la category</label>
+                <input type="text" name="categoryImage" class="form-control" id="image">
+            </div>
+            <div>
+                <label for="parentOrChild">Parent or Child</label>
+                <select name="parentOrChild" id="parentOrChild">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categoryIsArchived">Archiver</label>
+                <select name="categoryIsArchived" id="categoryIsArchived">
+                    <option value="true">yes</option>
+                    <option value="false">no</option>
+                </select>
+            </div>
+
+            <button onclick="updateCategory()" type="button" class="btn btn-outline-primary">Modifier</button>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                data-target="#modalDelete">Supprimer</button>
+        </form>
+
+        <section class="container text-center mb-5">
+            <h3>Consultez la liste des Questions qui y sont associees</h3>
+            <p>(cliquer pour editer)</p>
+        </section>
+
+
+        <section class="container">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-success mb-5 " data-toggle="modal"
+                data-target="#createQuestionModal">Ajouter</button>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">LABEL</th>
+                        <th scope="col">CODE</th>
+                        <th scope="col">Nombre de question</th>
+                        <th scope="col">Ordre des questions</th>
+                        <th scope="col">Type de questions</th>
+                    </tr>
+                </thead>
+                <tbody id="arrayQuestion">
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+
+
+
+    <footer class="row border-top pt-3">
+
+    </footer>
+
+    <!-- bootstrap modal -->
+
+    <!-- Modal create question -->
+    <div class="modal fade" id="createQuestionModal" tabindex="-1" role="dialog"
+        aria-labelledby="createQuestionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createQuestionModalLabel">Entrez le libelle de la question</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                            <input type="text" name="questionLabel" class="form-control mb-3" id="">
+                            <input type="hidden" name="questionId" value="">
+                        </div>
+                        <button onclick="createQuestion()" type="button"
+                            class="btn btn-outline-primary">Envoyer</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- modal delete category -->
+
+
+
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDeleteLabel">Voulez-vous supprimer la category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <button onclick="deleteCategory()" type="button" class="btn btn-outline-primary">yes</button>
+                        <button data-dismiss="modal" type="button" class="btn btn-outline-danger">no</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}

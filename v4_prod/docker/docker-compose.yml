@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+
+  websitecv:
+    build: 
+      context: ../websitecv
+    volumes:
+      - ../websitecv:/opt/app
+    restart: always
+    environment:
+      - VIRTUAL_HOST=manoha.art, www.manoha.art
+      - LETSENCRYPT_HOST=manoha.art, www.manoha.art
+      - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+
+    container_name: cv-site  
+
+
+  # websitecvwww:
+  #   build: 
+  #     context: ../websitecv
+  #   volumes:
+  #     - ../websitecv:/opt/app
+  #   restart: always
+  #   environment:
+  #     - VIRTUAL_HOST=www.manoha.art 
+  #     - LETSENCRYPT_HOST=www.manoha.art
+  #     - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+
+  #   container_name: cv-site-www  
+
+  sitetest:
+    build: 
+      context: ../sitetest
+    volumes:
+      - ../sitetest:/opt/app
+    restart: always
+    environment:
+    - VIRTUAL_HOST=demo.manoha.art
+    - LETSENCRYPT_HOST=demo.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: demo-site  
+
+volumes:
+  cvVolumes:
+
+networks:
+    default:
+      external:
+        name: webproxy

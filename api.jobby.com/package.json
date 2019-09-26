@@ -1,0 +1,32 @@
+{
+  "name": "api.jobby.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cp": "cp .env.dev .env",
+    "start": "npm run cp && nodemon ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dot-env": "0.0.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "mysql": "^2.16.0",
+    "node-fetch": "^2.3.0",
+    "winston": "^3.2.1",
+    "winston-mail": "^1.5.2"
+  }
+}

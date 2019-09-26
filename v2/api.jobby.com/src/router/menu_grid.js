@@ -1,0 +1,41 @@
+
+const express = require('express')
+
+const router = express.Router()
+
+router.get('/', (req, res, next) => {
+  res.json([
+    {
+      'h1': 'Jobby',
+      'title': '',
+      'link': '/home',
+      'id': 'app-title'
+    },
+    {
+      'h1': '',
+      'title': 'Inscription',
+      'link': '/register',
+      'id': 'inscription'
+    },
+    {
+      'h1': '',
+      'title': 'Connexion',
+      'link': '/connexion',
+      'id': 'connection'
+    },
+    {
+      'h1': '',
+      'title': 'À&nbsp;propos',
+      'link': '/about',
+      'id': 'about'
+    },
+    {
+      'h1': '',
+      'title': 'Contact',
+      'link': '/contact',
+      'id': 'contact'
+    }
+  ])
+})
+
+module.exports = router

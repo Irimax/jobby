@@ -1,0 +1,90 @@
+version: '3.1'
+
+services:
+
+  jobby-api:
+    build: 
+     context: ../api.jobby.com
+    volumes:
+      - ../api.jobby.com:/opt/app
+    restart: always
+    ports:
+      - 6005:6005
+    environment:
+    - VIRTUAL_HOST=jobby-api.manoha.art
+    - LETSENCRYPT_HOST=jobby-api.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: API-jobby
+
+    links:
+      - jobbydb:jobbydb
+
+  jobby-pf:
+    build: 
+     context: ../pf.jobby
+    volumes:
+      - ../pf.jobby:/opt/app
+    restart: always
+    ports:
+      - 11000:11000
+    environment:
+    - VIRTUAL_HOST=webhook.manoha.art
+    - LETSENCRYPT_HOST=webhook.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: WebHook-jobby
+    links:
+      - jobbydb:jobbydb
+      - jobby-api:jobby-api
+
+  jobby-front:
+    build: 
+     context: ../front
+    volumes:
+      - ../front:/opt/app
+    restart: always
+    environment:
+    - VIRTUAL_HOST=jobby.manoha.art
+    - LETSENCRYPT_HOST=jobby.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: Front-jobby
+
+  jobby-admin:
+    build: 
+     context: ../jobby_admin_v1
+    volumes:
+      - ../jobby_admin_v1:/opt/app
+    restart: always
+    environment:
+    - VIRTUAL_HOST=jobby-admin.manoha.art
+    - LETSENCRYPT_HOST=jobby-admin.manoha.art
+    - LETSENCRYPT_EMAIL=lidianmanoha@gmail.com
+    
+    container_name: admin-jobby
+    links:
+      - jobby-pf:jobby-pf
+      - jobby-api:jobby-api
+
+  jobbydb:
+    volumes: 
+      - ./jobbydb:/docker-entrypoint-initdb.d
+      - jobbyvolumes:/var/lib/mysql:rw
+    image: mysql:5.7
+    restart: always
+    ports:
+     - 3307:3306
+    environment:
+      MYSQL_DATABASE: jobbydb
+      MYSQL_USER: lidian
+      MYSQL_PASSWORD: 31101978
+      MYSQL_ROOT_PASSWORD: 31101978
+      
+volumes:
+  jobbyvolumes:
+
+networks:
+    default:
+      external:
+        name: webproxy

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Font GOOGLE -->
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- script javaScript-->
+
+    <script src="../script/reponses.js"></script>
+    <script src="../script/displayReponse.js"></script>
+    <script src="../script/updateReponse.js"></script>
+    <script src="../script/createReponse.js"></script>
+    <script src="../script/deleteReponse.js"></script>
+    <script src="../script/displayTypeReponse.js"></script>
+
+
+    <title>Jobby Admin Reponse</title>
+
+</head>
+
+<body onload="displayReponse ()">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" ><h1><i class="fal fa-cogs"></i> DASHBOARD</h1></a>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" ><h3>Jobby</h3> <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <div class=" my-2 my-lg-0">
+                            <a href="categories.html" class="logout"><i class="fal fa-home"></i> Home</a>
+                            <a href="connexion.html" class="logout"><i class="far fa-sign-out-alt"></i> LogOut</a>
+                    </div>
+                </div>
+            </nav>
+    <main>
+        <section class="container text-center">
+            <h3>EDITEZ LA REPONSE ( <span id="label"></span>)</h3>
+        </section>
+        <section id="message"></section>
+        <form class="container mb-5">
+            <div class="form-group">
+                <label for="possibleResponseLabel">Label de la reponse</label>
+                <input type="text" name="possibleResponseLabel" class="form-control" id="reponse" value="">
+                <input type="hidden" name="possibleResponseId" value="">
+                <input type="hidden" name="possibleResponse_questionId" value="">
+                <input type="hidden" name="questionId" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="possibleResponseIsArchived">Archiver</label>
+                <select name="possibleResponseIsArchived" id="possibleResponseIsArchived">
+                    <option value="true">yes</option>
+                    <option value="false">no</option>
+                </select>
+            </div>
+            <button onclick="updateReponse()" type="button" class="btn btn-outline-primary">Modifier</button>
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                data-target="#modalDelete">Supprimer</button>
+        </form>
+    </main>
+
+
+
+
+
+
+    <!-- bootstrap modal -->
+
+    <!--  modal delete reponse -->
+
+
+
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDeleteLabel">Voulez-vous supprimer la reponse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <button onclick="deleteReponse()" type="button" class="btn btn-outline-primary">yes</button>
+                        <button data-dismiss="modal" type="button" class="btn btn-outline-danger">no</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Script bootstrap  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
